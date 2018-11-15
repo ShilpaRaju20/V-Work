@@ -1,0 +1,47 @@
+{% load static %}
+<br><br><br><br><br><br><br><br><br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewdetails</title>
+</head>
+{% include "header.html" %}
+<body>
+{% if messages %}
+<ul >
+    {% for message in messages %}
+
+        <script>
+
+         alert( "{{ message }}" );
+        </script>
+
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+
+    {% for obj in data %}
+
+             <table align="center" width="50%" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <tr> <td>Contractor Id</td><td>{{ obj.con_id }}</td></tr>
+            <tr><td>Contractor Name</td><td>{{ obj.contractor_name }}</td></tr>
+            <tr><td>Phone Number</td><td>{{ obj.phno }}</td></tr>
+            <tr><td>Email Address</td><td>{{ obj.mail_id }}</td></tr>
+            <tr><td>Amount</td><td>{{ obj.amt }}</td></tr>
+
+
+    {% endfor %}
+      <tr>
+             <td><a href="{% url 'viewdetails:views' pk=obj.mail_id %}">OK</a></td>
+
+
+        </tr>
+   </table>
+</form>
+</body>
+<br><br><br><br><br>
+{% include "footer.html" %}
+</html>

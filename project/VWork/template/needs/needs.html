@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Needs</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+
+
+            {% for obj in data %}
+     <table align="center" width="50%" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+
+                  <tr> <td>Customer Id</td><td>{{ obj.cust_id }}</td></tr>
+
+                  <tr><td>Customer Name</td><td>{{ obj.custname }}</td></tr>
+
+                  <tr><td>Category</td><td>{{ obj.work_categoryname }}</td></tr>
+
+                  <tr> <td>Date</td><td>{{ obj.userwork_date }}</td></tr>
+
+                  <tr><td>Plot</td><td>{{ obj.work_plot }}</td></tr>
+
+                  <tr><td>Phone No</td><td>{{ obj.custphno }}</td></tr>
+
+                  <tr><td>Email Address</td><td>{{ obj.custemail }}</td></tr>
+                  <br><br>
+                  <td><a href="{% url 'approach:Approach_Forms' pk=obj.id %}">Approach</a></td>
+                  <!--<td><input type="button" align="right" name="btnreset" value="Approach"></td>-->
+           </table>
+    <br>
+    <br>
+
+            {% endfor %}
+
+
+
+
+
+</form>
+</body>
+</html>

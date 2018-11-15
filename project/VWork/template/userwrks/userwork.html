@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>userwrks</title>
+</head>
+<body>
+<h2 align="center">ADD DETAILS</h2>
+<form method="post">
+
+    {% csrf_token %}
+    <table align="center" cellspacing="8">
+
+        <tr>
+            <td> Date</td>
+            <td> {{ form.userwork_date }}</td>
+        </tr>
+         <tr>
+            <td> Plot</td>
+            <td> {{ form.work_plot }}</td>
+        </tr>
+
+         <tr>
+            <td> Category</td>
+            <td> {{ form.work_categoryname }}</td>
+        </tr>
+        <tr>
+	        <td align="right"><input type="submit" name="btnsubmit" value="Submit"></td>
+	        <td><input type="reset" name="btnreset" value="Reset"></td>
+        </tr>
+
+
+</table>
+</form>
+</body>
+</html>

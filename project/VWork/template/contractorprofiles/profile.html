@@ -1,0 +1,110 @@
+
+
+
+<html>
+    <body>
+
+
+
+<div>
+    <h2 align="center">MY PROFILE</h2>
+<form method="post">
+	{% csrf_token %}
+<table align="center" cellspacing="8">
+<tr>
+	<td> Name</td>
+	<td>
+		{{ form.contractor_name }}
+	</td>
+</tr>
+
+<tr>
+     <td>Gender</td>
+     <td>
+		 {{ form.gender }}
+	 </td>
+</tr>
+
+<tr>
+      <td>MailId</td>
+	  <td>
+		  {{ form.mail_id }}
+	  </td>
+</tr>
+<tr>
+      <td>Contact No</td>
+	  <td>
+		  {{ form.phno }}
+	  </td>
+</tr>
+
+<tr>
+      <td>Address</td>
+	  <td>
+		  {{ form.address }}
+	  </td>
+</tr>
+<tr>
+      <td>Street</td>
+	  <td>
+		  {{ form.street }}
+	  </td>
+</tr>
+	<tr>
+        <td>City</td>
+		<td>
+			{{ form.city }}
+		</td>
+</tr>
+<tr>
+        <td>District</td>
+	    <td>
+			{{ form.district }}
+		</td>
+</tr>
+<tr>
+        <td>Pin</td>
+	    <td>
+			{{ form.pin }}
+		</td>
+</tr>
+<tr>
+        <td>State</td>
+        <td>
+			{{ form.state_id }}
+		</td>
+</tr>
+<tr>
+       <td>Aadhar Number</td>
+       <td>
+		   {{ form.aadharno }}
+	   </td>
+</tr>
+       <td>Username</td>
+	   <td>
+		   {{ form.username }}
+	   </td>
+</tr>
+<tr>
+       <td>Password</td>
+	   <td>
+		   {{ form.pswd }}
+	   </td>
+</tr>
+	<tr>
+		<td>Contractor Category:</td>
+		<td>
+			{{ form.con_categoryid }}
+		</td>
+	</tr>
+
+<tr>
+	<td align="right"><input type="submit" name="btnsubmit" value="RESET"></td>
+
+</tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>

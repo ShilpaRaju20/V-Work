@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work Details</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" cellspacing="8">
+        <tr>
+            <td> Name</td>
+            <td> {{ form.work_name }}</td>
+        </tr>
+
+        <tr>
+            <td> Construction Category</td>
+            <td> {{ form.constructioncat_id }}</td>
+        </tr>
+
+
+        <tr>
+            <td> Date</td>
+            <td> {{ form.work_date }}</td>
+        </tr>
+        <tr>
+            <td> Amount</td>
+            <td> {{ form.amt }}</td>
+        </tr>
+        <tr>
+            <td> Images</td>
+            <td> {{ form.images }}</td>
+        </tr>
+        <tr>
+            <td align="right"><input type="submit" name="btnsubmit" value="Insert"> </td>
+
+        </tr>
+
+
+    </table>
+    <table border="1" align="center">
+        <tr>
+            <td>SL.No</td>
+            <td>Work Name</td>
+            <td>Category</td>
+            <td>Date</td>
+            <td>Amount</td>
+            <td>Images</td>
+            <td>edit/delete</td>
+
+        </tr>
+         <tr>
+            {% for obj in data %}
+              <tr>
+                 <td>{{ for.loopcounter }}</td>
+                 <!--<td>{{ obj.id }}</td>-->
+                 <td>{{ obj.work_name }}</td>
+                 <td>{{ obj.constructioncat_id }}</td>
+                 <td>{{ obj.work_date }}</td>
+                 <td>{{ obj.amt }}</td>
+                 <td> {{ obj.images }}</td>
+
+           <td><a href="{% url 'constructingcategory:edit_constructcategory' pk=obj.id %}">Edit</a></td>
+           <td><a href="{% url 'constructingcategory:delete_constructcategory' pk=obj.id %}">Delete</a></td>
+
+            {% endfor %}
+
+              </tr>
+    </table>
+</form>
+
+</body>
+</html>

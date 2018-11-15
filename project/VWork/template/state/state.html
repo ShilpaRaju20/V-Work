@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State</title>
+</head>
+<body>
+<h2 align="center">STATE</h2>
+<form method="post">
+    {% csrf_token %}
+    <table align="center" cellspacing="8">
+        <tr>
+            <td>
+                State:
+            </td>
+            <td>{{form.name}}</td>
+        </tr>
+        <tr>
+          <td align="center"> <input type="submit" name="btnsubmit" value="Submit"></td>
+        </tr>
+    </table>
+    <table border="1" align="center" cellspacing="4">
+    <tr>
+      <th colspan="4">
+        STATE
+      </th>
+    </tr>
+    <tr>
+      <th>Sl No</th>
+      <th>State</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    {% for obj in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{obj.name}}</td>
+      <td><a href="{% url 'state:edit_state' pk=obj.id %}">Edit</a> </td>
+       <td><a href="{% url 'state:delete_state' pk=obj.id %}">Delete</a> </td>
+    </tr>
+    {% endfor %}
+      </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<br><br><br><br><br><br><br><br><br>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+    <meta charset="UTF-8">
+    <title>AdminHome</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><a href="{% url 'category:Category_Forms' %}">Category</a></td>
+        <td><a href="{% url 'state:State_Forms' %}">State</a></td>
+        <td><a href="{% url 'contractorcategory:ConCategory_Forms' %}">Contractor Category</a></td>
+        <td><a href="{% url 'constructingcategory:ConstructCategory_Forms' %}">Constructing Category</a></td>
+        <td><a href="{% url 'feedbackview:feedbacks' %}">Feedbacks</a></td>
+        <td><a href="{% url 'complaintview:complaints' %}">Complaints</a></td>
+
+
+
+
+
+    </tr>
+
+</table>
+
+</body>
+<br><br><br><br><br><br><br><br><br>
+{% include "footer.html" %}
+</html>

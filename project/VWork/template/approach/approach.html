@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approach</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    <table align="center" cellspacing="8">
+        {% for obj in data %}
+            <tr><td>Work ID</td><td>{{ obj.pk }}</td></tr>
+            <tr><td>Customer Id</td><td>{{ obj.cust_id }}</td></tr>
+            <tr><td>Customer Name</td><td>{{ obj.custname }}</td></tr>
+            <tr><td>Plot</td><td>{{ obj.work_plot }}</td></tr>
+
+        {% endfor %}
+        <tr>
+            <td>Amount</td>
+            <td>{{ form.amt }}</td>
+        </tr>
+
+
+        <tr>
+            <td>Date</td>
+            <td>{{ form.cdate }}</td>
+        </tr>
+
+        <tr>
+
+        </tr>
+        <tr>
+	        <td align="right"><input type="submit" name="btnsubmit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

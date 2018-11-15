@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feedback</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    <table align="center" cellspacing="8">
+
+
+            <tr><td>Contractor Name</td><td>{{ form.con_name }}</td></tr>
+            <tr><td>WorkCategory Name</td><td>{{ form.work_categoryname }}</td></tr>
+            <tr><td>Date</td><td>{{ form.fdate }}</td></tr>
+            <tr><td>Feedback</td><td>{{ form.feedback }}</td></tr>
+            <tr><td align="right"><input type="submit" name="btnsubmit" value="Submit"></td></tr>
+
+    </table>
+    <table border="1" align="center" cellspacing="4">
+    <tr>
+      <th colspan="7">
+        Feedback
+      </th>
+    </tr>
+    <tr>
+        <th>Sl No</th>
+        <th>Contractor Name</th>
+        <th>Work Category</th>
+        <th>Date</th>
+        <th>Feedback</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for obj in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ obj.con_name }}</td>
+        <td>{{ obj.work_categoryname }}</td>
+        <td>{{ obj.fdate }}</td>
+        <td>{{ obj.feedback }}</td>
+       <td><a href="{% url 'feedback:edit_feedback' pk=obj.id %}">Edit</a></td>
+       <td><a href="{% url 'feedback:delete_feedback' pk=obj.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+      </table>
+
+</form>
+
+
+</body>
+</html>
